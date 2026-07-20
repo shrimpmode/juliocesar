@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-screen w-screen">
+  <div class="flex h-screen w-screen overflow-hidden">
     <div class="lg:hidden fixed top-4 right-4 z-50">
       <RoughMenu v-model="isMenuOpen" />
     </div>

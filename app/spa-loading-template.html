@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+      body {
+        margin: 0;
+        background: #2c3b4d;
+        font-family: "Indie Flower", cursive;
+      }
+
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2rem;
+      }
+
+      #svg {
+        margin-top: 20px;
+      }
+
+      @keyframes rotate {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .spinner {
+        animation: rotate 2s linear infinite;
+        transform-origin: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <svg id="svg" width="200" height="200"></svg>
+    </div>
+  </body>
+
+  <script type="module">
+    import rough from "https://cdn.jsdelivr.net/npm/roughjs@4.6.6/+esm";
+
+    const svg = document.getElementById("svg");
+    const rc = rough.svg(svg);
+
+    const square = rc.rectangle(50, 50, 100, 100, {
+      fill: "#99bab9",
+      fillStyle: "hachure",
+      fillWeight: 2,
+      roughness: 2.5,
+      stroke: "#ffffff",
+      strokeWidth: 3,
+    });
+
+    square.classList.add("spinner");
+    svg.appendChild(square);
+  </script>
+</html>

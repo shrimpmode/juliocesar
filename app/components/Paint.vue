@@ -1,6 +1,9 @@
 <template>
   <div class="flex relative flex-wrap min-w-[300px] max-w-[800px]">
-    <div class="flex w-full justify-center relative" id="sky">
+    <div
+      class="flex w-full justify-center relative h-[200px] overflow-hidden"
+      id="sky"
+    >
       <RoughBox
         :roughness="8"
         fillStyle="solid"
@@ -53,11 +56,13 @@
           </ClientOnly>
         </div>
       </div>
-      <div class="w-[180px] h-[180px] p-4 relative z-10">
+      <div
+        class="w-[240px] h-[240px] p-4 z-10 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2"
+      >
         <RoughCircle stroke="#EC6426" />
       </div>
     </div>
-    <div class="flex gap-8 relative" id="sea">
+    <div class="flex gap-8 relative min-h-[150px]" id="sea">
       <RoughBox
         :roughness="8"
         fillStyle="solid"

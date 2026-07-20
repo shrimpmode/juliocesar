@@ -5,14 +5,16 @@
       :stroke-width="2.5"
       class="w-full h-full absolute inset-0"
     />
-    <main class="p-8 relative z-10">
-      <div class="pb-8">
-        <div class="text-6xl">Hi ! I'm Julio Cesar</div>
+    <main class="p-8 relative z-10 flex flex-col h-full">
+      <div class="py-8 flex-1">
+        <div class="text-6xl pb-4">Hi ! I'm Julio Cesar</div>
         <div class="text-4xl">I'm a full stack software engineer</div>
-        <div class="text-4xl">I like sunsets, coding, and cuisine.</div>
+        <div class="text-4xl">
+          I like sunsets, coding, and peruvian cuisine.
+        </div>
       </div>
 
-      <Paint />
+      <Paint class="flex-1" />
     </main>
   </div>
 </template>

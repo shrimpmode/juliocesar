@@ -6,15 +6,22 @@
       class="w-full h-full absolute inset-0"
     />
     <main class="p-8 relative z-10 flex flex-col h-full">
-      <div class="py-8 flex-1">
-        <div class="text-6xl pb-4">Hi ! I'm Julio Cesar</div>
+      <div class="py-8">
+        <div class="text-6xl pb-4 font-semibold">Hi ! I'm Julio Cesar</div>
         <div class="text-4xl">I'm a full stack software engineer</div>
         <div class="text-4xl">
           I like sunsets, coding, and peruvian cuisine.
         </div>
       </div>
 
-      <Paint class="flex-1" />
+      <div class="w-64 h-64">
+        <PhotoBox class="relative w-64 h-64">
+          <img
+            src="/sunset1.jpg"
+            class="rotate-[10deg] absolute top-0 w-64 h-64"
+          />
+        </PhotoBox>
+      </div>
     </main>
   </div>
 </template>

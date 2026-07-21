@@ -4,6 +4,7 @@ export interface RoughBoxOptions {
   strokeWidth?: number;
   fill?: string;
   fillStyle?: "solid" | "hachure" | "cross-hatch" | "zigzag" | "dots" | "dashed" | "zigzag-line";
+  fillWeight?: number;
   stroke?: string;
 }
 

@@ -14,14 +14,12 @@
         </div>
       </div>
 
-      <div class="w-64 h-64">
-        <PhotoBox class="relative w-64 h-64">
-          <img
-            src="/sunset1.jpg"
-            class="rotate-[10deg] absolute top-0 w-64 h-64"
-          />
-        </PhotoBox>
-      </div>
+      <PhotoBox class="relative w-[280px] h-[280px]">
+        <img
+          src="/sunset1.jpg"
+          class="rotate-[10deg] absolute top-0 w-64 h-64"
+        />
+      </PhotoBox>
     </main>
   </div>
 </template>

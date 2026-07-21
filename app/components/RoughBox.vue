@@ -13,6 +13,7 @@ interface Props {
   strokeWidth?: number;
   fill?: string;
   fillStyle?: "solid" | "hachure" | "cross-hatch" | "zigzag" | "dots" | "dashed" | "zigzag-line";
+  fillWeight?: number;
   stroke?: string;
 }
 
@@ -50,6 +51,7 @@ const drawBox = () => {
   // Only add optional props if they're defined
   if (props.fill !== undefined) options.fill = props.fill;
   if (props.fillStyle !== undefined) options.fillStyle = props.fillStyle;
+  if (props.fillWeight !== undefined) options.fillWeight = props.fillWeight;
   if (props.stroke !== undefined) options.stroke = props.stroke;
 
   // Draw the box using utility function

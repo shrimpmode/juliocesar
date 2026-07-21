@@ -1,7 +1,20 @@
 <template>
   <div class="">
-    <RoughBox :fill-style="'cross-hatch'" fill="#5B5F8D" v-if="isVisible" />
-    <RoughBox fill="#5B5F8D" fill-style="cross-hatch" v-else />
+    <RoughBox
+      fillStyle="cross-hatch"
+      fill="#5B5F8D"
+      :stroke-width="3"
+      v-if="isVisible"
+      :fill-weight="3"
+      :roughness="4"
+    />
+    <RoughBox
+      fill="#5B5F8D"
+      fill-style="cross-hatch"
+      :fill-weight="3"
+      :stroke-width="3"
+      v-else
+    />
     <slot />
   </div>
 </template>

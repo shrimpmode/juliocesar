@@ -64,7 +64,7 @@ const links = ref([
   {
     name: "Contact",
     to: "/contact",
-    classes: ["bg-sage", "text-primary"],
+    classes: ["bg-dusk", "text-cream"],
   },
 ]);
 </script>

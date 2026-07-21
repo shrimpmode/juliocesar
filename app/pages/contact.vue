@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-sage text-primary h-screen p-8 relative">
+  <div class="bg-dusk text-cream h-screen p-8 relative">
     <RoughBox
       :roughness="4"
       :stroke-width="2.5"
@@ -12,10 +12,7 @@
       <div class="flex flex-col gap-4 text-3xl">
         <div class="flex flex-col gap-2">
           <span class="text-4xl font-semibold">Email</span>
-          <a
-            href="mailto:jcsile444@gmail.com"
-            class="hover:underline"
-          >
+          <a href="mailto:jcsile444@gmail.com" class="hover:underline">
             jcsile444@gmail.com
           </a>
         </div>

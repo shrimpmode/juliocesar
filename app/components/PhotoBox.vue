@@ -8,13 +8,17 @@
 
 <script setup>
 const isVisible = ref(true);
+let intervalId = null;
+
 onMounted(() => {
-  const interval = setInterval(() => {
+  intervalId = setInterval(() => {
     isVisible.value = !isVisible.value;
   }, 1000);
+});
 
-  return () => {
-    interval.clear();
-  };
+onUnmounted(() => {
+  if (intervalId !== null) {
+    clearInterval(intervalId);
+  }
 });
 </script>

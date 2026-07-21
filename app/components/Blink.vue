@@ -13,14 +13,19 @@
 const { delay = 1000 } = defineProps<{
   delay?: number;
 }>();
+
 const isVisible = ref(true);
+let intervalId: number | null = null;
+
 onMounted(() => {
-  const interval = setInterval(() => {
+  intervalId = setInterval(() => {
     isVisible.value = !isVisible.value;
   }, delay);
+});
 
-  return () => {
-    interval.clear();
-  };
+onUnmounted(() => {
+  if (intervalId !== null) {
+    clearInterval(intervalId);
+  }
 });
 </script>

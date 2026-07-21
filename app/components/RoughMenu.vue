@@ -7,21 +7,18 @@
     aria-controls="navigation-menu"
     @click="toggleMenu"
   >
-    <svg
-      ref="menu"
-      width="32px"
-      height="32px"
+    <img
+      src="/menu.svg"
+      alt=""
       aria-hidden="true"
-      focusable="false"
-    ></svg>
+      class="w-8 h-8"
+      v-if="!modelValue"
+    />
+    <img src="/close.svg" alt="" aria-hidden="true" class="w-8 h-8" v-else />
   </button>
 </template>
 
 <script setup lang="ts">
-import rough from "roughjs";
-
-const menu = ref<SVGSVGElement | null>(null);
-
 const props = defineProps<{
   modelValue?: boolean;
 }>();
@@ -29,40 +26,6 @@ const props = defineProps<{
 const emit = defineEmits<{
   "update:modelValue": [boolean];
 }>();
-
-onMounted(() => {
-  drawMenu();
-  window.addEventListener("resize", drawMenu);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("resize", drawMenu);
-});
-
-function drawMenu() {
-  const svg = menu.value;
-  if (!svg) return;
-
-  // Clear previous content
-  svg.innerHTML = "";
-
-  const rc = rough.svg(svg);
-  const node = rc.line(0, 0, 32, 0, {
-    stroke: "#000000",
-    strokeWidth: 2,
-  });
-  const node2 = rc.line(0, 12, 32, 12, {
-    stroke: "#000000",
-    strokeWidth: 2,
-  });
-  const node3 = rc.line(0, 24, 32, 24, {
-    stroke: "#000000",
-    strokeWidth: 2,
-  });
-  svg.appendChild(node);
-  svg.appendChild(node2);
-  svg.appendChild(node3);
-}
 
 function toggleMenu() {
   emit("update:modelValue", !props.modelValue);

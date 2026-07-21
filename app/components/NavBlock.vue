@@ -42,12 +42,16 @@ const drawShapes = () => {
   });
 
   // Apply transform to center and scale the heart
-  node.setAttribute("transform", `translate(${translateX}, ${translateY}) scale(${scale})`);
+  node.setAttribute(
+    "transform",
+    `translate(${translateX}, ${translateY}) scale(${scale})`,
+  );
 
   const rect = rc.rectangle(0, 0, width, height, {
     roughness: 2,
     fill: "#0E79B2",
-    fillStyle: "cross-hatch",
+    fillStyle: "solid",
+    fillWeight: 4,
     strokeWidth: 3,
   });
 

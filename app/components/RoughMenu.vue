@@ -1,59 +1,20 @@
 <template>
   <button
     type="button"
-    class="menu-button"
-    :aria-label="modelValue ? 'Close menu' : 'Open menu'"
-    :aria-expanded="modelValue"
-    aria-controls="navigation-menu"
-    @click="toggleMenu"
+    :aria-label="isOpen ? 'Close menu' : 'Open menu'"
+    :aria-expanded="isOpen"
+    class="bg-transparent border-0 cursor-pointer p-2 inline-flex items-center justify-center rounded hover:bg-black/5 active:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-black focus-visible:outline-offset-2"
+    @click="isOpen = !isOpen"
   >
     <img
-      src="/menu.svg"
+      :src="isOpen ? '/close.svg' : '/menu.svg'"
       alt=""
       aria-hidden="true"
       class="w-8 h-8"
-      v-if="!modelValue"
     />
-    <img src="/close.svg" alt="" aria-hidden="true" class="w-8 h-8" v-else />
   </button>
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-  modelValue?: boolean;
-}>();
-
-const emit = defineEmits<{
-  "update:modelValue": [boolean];
-}>();
-
-function toggleMenu() {
-  emit("update:modelValue", !props.modelValue);
-}
+const isOpen = defineModel<boolean>({ default: false });
 </script>
-
-<style scoped>
-.menu-button {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-}
-
-.menu-button:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.menu-button:focus-visible {
-  outline: 2px solid #000;
-  outline-offset: 2px;
-}
-
-.menu-button:active {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-</style>

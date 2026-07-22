@@ -7,7 +7,7 @@
     @click="isOpen = !isOpen"
   >
     <img
-      :src="isOpen ? '/close.svg' : '/menu.svg'"
+      :src="`${baseURL}${isOpen ? 'close.svg' : 'menu.svg'}`"
       alt=""
       aria-hidden="true"
       class="w-8 h-8"
@@ -17,4 +17,5 @@
 
 <script setup lang="ts">
 const isOpen = defineModel<boolean>({ default: false });
+const baseURL = useRuntimeConfig().app.baseURL;
 </script>

@@ -6,8 +6,9 @@ gsap.registerPlugin(SplitText);
 
 const commands = [
   { input: "./skills.sh", output: "" },
-  { input: "", output: "Python, Javascript, Go" },
-  { input: "", output: "Django, Vue, React, Nuxt" },
+  { input: "", output: "Languages: Python, Go, Typescript" },
+  { input: "", output: "Back End: Django, Node.js, PostgreSQL, GraphQL" },
+  { input: "", output: "Front End: React, Vue, Nuxt.js" },
 ];
 
 onMounted(() => {

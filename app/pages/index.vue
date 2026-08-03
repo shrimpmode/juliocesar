@@ -14,26 +14,14 @@
         </div>
       </div>
 
-      <!-- <div class="flex wrap gap-4"> -->
-      <!--   <PhotoBox class="relative w-[300px] h-[300px]"> -->
-      <!--     <div class="top-0 absolute"> -->
-      <!--       <img -->
-      <!--         v-for="(src, i) in ['jc.jpg', 'sunset1.jpg']" -->
-      <!--         :src="src" -->
-      <!--         class="absolute top-0 w-64 h-64 rounded-md" -->
-      <!--         :class="[`rotate-[${10 + i * 10}deg]`]" -->
-      <!--       /> -->
-      <!--     </div> -->
-      <!--   </PhotoBox> -->
-      <!-- </div> -->
-      <div class="relative w-full h-full photo-container flex gap-4">
-        <NuxtImg
-          v-for="(src, i) in photos"
-          :key="src"
-          :src="src"
+      <div class="relative w-full h-full photo-container flex wrap gap-4">
+        <img
+          v-for="(photo, i) in photos"
+          :key="photo.src"
+          :src="photo.src"
           :id="`img${i}`"
-          class="top-0 w-64 h-auto max-h-80 rounded-md"
-          :style="{ transform: `${i % 2 ? '' : '-'}rotate(${10 + i * 10}deg)` }"
+          :class="[photo.class, 'top-0 rounded-md']"
+          :style="{ transform: `rotate(${i % 2 ? '' : '-'}${10 + i * 10}deg)` }"
         />
       </div>
     </main>
@@ -46,9 +34,12 @@ import { Draggable } from "gsap/Draggable";
 
 gsap.registerPlugin(Draggable);
 
-const photos = ref(["/jc.jpg", "/sunset1.jpg"]);
+const photos = ref([
+  { src: "/jc.jpg", class: "w-64 h-auto max-h-80" },
+  { src: "/sunset1.jpg", class: "w-64 h-64" },
+]);
 onMounted(() => {
-  photos.value.forEach((photo, i) => {
+  photos.value.forEach((_, i) => {
     Draggable.create(`#img${i}`, {
       bounds: ".photo-container",
     });

@@ -42,4 +42,8 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxtjs/tailwindcss",
   ],
+
+  image: {
+    baseURL: "/juliocesar/",
+  },
 });

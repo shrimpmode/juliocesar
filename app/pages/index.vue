@@ -46,7 +46,7 @@ import { Draggable } from "gsap/Draggable";
 
 gsap.registerPlugin(Draggable);
 
-const photos = ref(["/juliocesar/jc.jpg", "/juliocesar/sunset1.jpg"]);
+const photos = ref(["/jc.jpg", "/sunset1.jpg"]);
 onMounted(() => {
   photos.value.forEach((photo, i) => {
     Draggable.create(`#img${i}`, {

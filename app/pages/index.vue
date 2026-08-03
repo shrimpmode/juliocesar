@@ -34,9 +34,10 @@ import { Draggable } from "gsap/Draggable";
 
 gsap.registerPlugin(Draggable);
 
+const config = useRuntimeConfig();
 const photos = ref([
-  { src: "/jc.jpg", class: "w-64 h-auto max-h-80" },
-  { src: "/sunset1.jpg", class: "w-64 h-64" },
+  { src: `${config.app.baseURL}jc.jpg`, class: "w-64 h-auto max-h-80" },
+  { src: `${config.app.baseURL}sunset1.jpg`, class: "w-64 h-64" },
 ]);
 onMounted(() => {
   photos.value.forEach((_, i) => {

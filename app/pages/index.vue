@@ -44,6 +44,13 @@ onMounted(() => {
     Draggable.create(`#img${i}`, {
       bounds: ".photo-container",
     });
+    gsap.from(`#img${i}`, {
+      x: -600,
+      opacity: 0,
+      duration: 1,
+      delay: i * 0.2,
+      ease: "power3.out",
+    });
   });
 });
 </script>

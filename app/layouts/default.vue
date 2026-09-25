@@ -9,19 +9,11 @@
         v-if="isMenuOpen"
         class="lg:hidden fixed inset-0 z-40 grid grid-cols-2 grid-rows-2 auto-rows-fr text-5xl font-semibold"
       >
-        <NuxtLink
-          v-for="link in links"
-          :key="link.to"
-          class="flex items-center justify-center hover:scale-105 transition-all"
-          :class="link.classes"
-          :to="link.to"
-          @click="isMenuOpen = false"
-        >
-          {{ link.name }}
-        </NuxtLink>
-        <div class="h-full w-full bg-cream">
-          <NavBlock />
-        </div>
+        <NavLinks
+          :links="links"
+          nav-block-class="bg-cream"
+          @link-click="isMenuOpen = false"
+        />
       </div>
     </Transition>
 
@@ -31,18 +23,7 @@
     <div
       class="hidden lg:grid lg:flex-1 grid-cols-2 grid-rows-2 auto-rows-fr text-5xl font-semibold"
     >
-      <NuxtLink
-        v-for="link in links"
-        :key="link.to"
-        class="flex items-center justify-center hover:scale-105 transition-all"
-        :class="link.classes"
-        :to="link.to"
-      >
-        {{ link.name }}
-      </NuxtLink>
-      <div class="h-full w-full">
-        <NavBlock />
-      </div>
+      <NavLinks :links="links" />
     </div>
   </div>
 </template>

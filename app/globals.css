@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #484149;
+  --color-cream: #f1dcba;
+  --color-mint: #bdd3ce;
+  --color-sage: #dbddb6;
+  --color-orange: #ec6426;
+  --color-dusk: #5b5f8d;
+
+  --font-sans: var(--font-indie-flower), cursive;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+  color: var(--color-primary);
+}
+
+/* Underline that grows from left to right on hover; shared by the nav and page
+   links, and kept on for the current page's nav link. Inside a larger link (the
+   contact notes) it grows when the whole link is hovered */
+.grow-underline {
+  padding-bottom: 2px;
+  background: linear-gradient(currentColor, currentColor) left bottom / 0% 2px
+    no-repeat;
+  transition: background-size 0.3s ease;
+}
+
+.grow-underline:hover,
+a:hover > .grow-underline,
+.grow-underline[aria-current="page"] {
+  background-size: 100% 2px;
+}
+
+/* Page transition (React <ViewTransition default="page-blur"> in the root
+   layout): the old page blurs out while the new one blurs in just after */
+::view-transition-old(.page-blur) {
+  animation: 300ms ease both page-blur-out;
+}
+
+::view-transition-new(.page-blur) {
+  animation: 300ms ease 150ms both page-blur-in;
+}
+
+@keyframes page-blur-out {
+  to {
+    opacity: 0;
+    filter: blur(1rem);
+  }
+}
+
+@keyframes page-blur-in {
+  from {
+    opacity: 0;
+    filter: blur(1rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(.page-blur),
+  ::view-transition-new(.page-blur) {
+    animation: none;
+  }
+}
